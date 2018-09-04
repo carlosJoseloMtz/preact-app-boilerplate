@@ -1,0 +1,30 @@
+{
+  "name": "gera_project",
+  "version": "1.0.0",
+  "description": "Admin version of the resources to be uploaded to the backend system",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rm -rf ./build",
+    "build:dev": "npm run clear && gulp && webpack --mode=development",
+    "build:prod": "npm run clear && gulp && webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@nopaldev",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "preact": "^8.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-preact": "^1.1.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "sass": "^1.13.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
