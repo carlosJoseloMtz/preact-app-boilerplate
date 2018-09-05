@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import Input from '../../components/input'
 import Button from '../../components/button'
+import { authenticate } from '../../services/user.service.js'
 
 class LoginPage extends Component {
 
@@ -13,6 +14,17 @@ class LoginPage extends Component {
   handlePwdChange (ev) {
     this.setState({
       password: ev.target.value
+    })
+  }
+
+  handleLoginClick () {
+    authenticate({
+      username: this.state.username,
+      password: this.state.password
+    }).then(res => {
+      console.log('response', res)
+    }).catch(err => {
+      console.warn('The error', err)
     })
   }
 
@@ -29,7 +41,10 @@ class LoginPage extends Component {
         placeholder='Password'
         type='password'
       />
-      <Button text='Login' />
+      <Button
+        onClick={this.handleLoginClick.bind(this)}
+        text='Login'
+      />
     </div>
   }
 }
